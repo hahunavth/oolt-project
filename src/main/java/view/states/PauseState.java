@@ -1,4 +1,4 @@
-package states;
+package view.states;
 
 import view.component.KeyPressedButton;
 import view.main.Camera;

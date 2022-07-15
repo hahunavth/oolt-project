@@ -2,7 +2,7 @@ package adapter;
 
 import model.ModelState;
 import model.TimeManager;
-import states.GameStateManager;
+import view.states.GameStateManager;
 import view.main.GamePanel;
 import view.main.UI;
 

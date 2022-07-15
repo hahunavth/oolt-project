@@ -1,11 +1,6 @@
 package view.main;
 
-import model.TimeManager;
-import states.GameStateManager;
-import view.utils.Animation;
-
 import java.awt.*;
-import java.util.Arrays;
 
 /**
  * In thông tin ở phía bên trái màn hình khi nhấn enter vào con vật.

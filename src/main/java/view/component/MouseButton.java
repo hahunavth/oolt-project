@@ -1,12 +1,13 @@
 package view.component;
 
-import states.GameStateManager;
+import interfaces.ICancelable;
+import view.states.GameStateManager;
 import view.math.AABB;
 import view.math.Vector2f;
 
 import java.awt.*;
 
-public abstract class MouseButton extends MyButton implements ICancelable{
+public abstract class MouseButton extends MyButton implements ICancelable {
 
     private final AABB bound;
     private boolean markBoundSizeInitialized = false;

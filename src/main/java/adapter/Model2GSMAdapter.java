@@ -1,8 +1,8 @@
 package adapter;
 
 import model.ModelState;
-import states.*;
-import view.component.ICancelable;
+import view.states.*;
+import interfaces.ICancelable;
 import view.main.Camera;
 import view.main.GamePanel;
 
@@ -30,7 +30,7 @@ public class Model2GSMAdapter extends GameStateManager {
 
 //    @Override
 //    public void createMenuState(Camera camera) {
-//        states[MENU] = new Model2MenuStateAdapter(camera, modelState);
+//        view.states[MENU] = new Model2MenuStateAdapter(camera, modelState);
 //    }
 
     @Override

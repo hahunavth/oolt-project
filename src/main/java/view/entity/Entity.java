@@ -1,8 +1,8 @@
 package view.entity;
 
-import model.Activities.IPrepareActivity;
+import interfaces.controller.ILocatable;
 import org.jetbrains.annotations.NotNull;
-import states.PlayState;
+import view.states.PlayState;
 import view.ai.Node;
 import view.ai.PathFinder;
 import view.component.FlyUpNumber;
@@ -14,12 +14,13 @@ import view.title.TileCollision;
 import view.utils.Direction;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.util.Random;
+import java.util.List;
 
-public abstract class Entity extends GameObject {
+@Deprecated
+public abstract class Entity extends GameObject implements ILocatable {
     private int speed;
     BufferedImage image;
 
@@ -95,6 +96,12 @@ public abstract class Entity extends GameObject {
         currentAnimation = i;
         ani.setFrames(i, frames);
         ani.setDelay(delay);
+    }
+
+    public void setAnimation (int i, List<Sprite> spriteList, int delay) {
+        Sprite[] sprites = new Sprite[spriteList.size()];
+        spriteList.toArray(sprites);
+        setAnimation(i, sprites, delay);
     }
 
     /**
@@ -257,7 +264,7 @@ public abstract class Entity extends GameObject {
         this.followedEntity = entity;
         this.searchedMark = false;
         pathFinder.setNodes(
-                this, entity
+                this, (GameObject) entity
         );
     }
 

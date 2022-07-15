@@ -2,8 +2,8 @@ package adapter;
 
 import model.Animals.*;
 import model.ModelState;
-import states.GameStateManager;
-import states.PlayState;
+import view.states.GameStateManager;
+import view.states.PlayState;
 import view.entity.*;
 import view.main.Camera;
 import view.main.GamePanel;
@@ -53,21 +53,12 @@ public class Model2PlayStateAdapter extends PlayState {
                 ChickenEntity chicken = (ChickenEntity) obj[j];
 //                    chicken.goTo(player);
             } else if(animals.get(i) instanceof Dog){
-                obj[j] = new DogEntity(gp, ps, animals.get(i));
-                obj[j].getBounds().getPos().x = ((int)(10f * gp.titleSize));
-                obj[j].getBounds().getPos().y = ((int)((10f + i) * gp.titleSize));
             }else if(animals.get(i) instanceof Cat){
                 obj[j] = new CatEntity(gp, ps, animals.get(i));
                 obj[j].getBounds().getPos().x = ((int)(10f * gp.titleSize));
                 obj[j].getBounds().getPos().y = ((int)((10f + i) * gp.titleSize));
             }else if(animals.get(i) instanceof Manatee){
-                obj[j] = new ManateeEntity(gp, ps, animals.get(i));
-                obj[j].getBounds().getPos().x = ((int)(37f * gp.titleSize));
-                obj[j].getBounds().getPos().y = ((int)((8f + i) * gp.titleSize));
             }else if(animals.get(i) instanceof Kangaroo){
-                obj[j] = new KangarooEntity(gp, ps, animals.get(i));
-                obj[j].getBounds().getPos().x = ((int)(20f * gp.titleSize));
-                obj[j].getBounds().getPos().y = ((int)((10f + i) * gp.titleSize));
             }
             else{
                 obj[j] = new FoxEntity(gp, ps, animals.get(i));

@@ -64,6 +64,8 @@ public class SpriteAnimation {
         count++;
 
         if(count == delay) {
+            System.out.println("animate");
+
             currentFrame++;
             count = 0;
         }

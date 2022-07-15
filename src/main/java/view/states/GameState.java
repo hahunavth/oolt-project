@@ -1,4 +1,4 @@
-package states;
+package view.states;
 
 import view.main.Camera;
 import view.main.KeyHandler;

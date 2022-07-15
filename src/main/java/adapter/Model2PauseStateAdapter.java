@@ -1,9 +1,9 @@
 package adapter;
 
 import model.ModelState;
-import states.GameStateManager;
-import states.PauseState;
-import view.component.ICancelable;
+import view.states.GameStateManager;
+import view.states.PauseState;
+import interfaces.ICancelable;
 import view.component.MouseButton;
 import view.main.Camera;
 import view.main.GamePanel;

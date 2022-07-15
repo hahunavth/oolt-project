@@ -1,7 +1,7 @@
 package view.object;
 
 import model.FoodInventory;
-import states.PlayState;
+import view.states.PlayState;
 import view.main.GamePanel;
 import view.utils.ImageSplitter;
 

@@ -1,6 +1,6 @@
 package view.main;
 
-import states.PlayState;
+import view.states.PlayState;
 import view.entity.Entity;
 
 /**

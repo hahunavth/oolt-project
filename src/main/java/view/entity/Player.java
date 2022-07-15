@@ -1,7 +1,7 @@
 package view.entity;
 
 import org.jetbrains.annotations.NotNull;
-import states.PlayState;
+import view.states.PlayState;
 import view.graphics.SpriteSheet;
 import view.ai.Node;
 import view.effect.FocusManager;
@@ -269,5 +269,15 @@ public class Player extends Entity {
              pathFinder.draw(g2);
          }
 
+    }
+
+    @Override
+    public int getWorldX() {
+        return (int) this.getPos().x;
+    }
+
+    @Override
+    public int getWorldY() {
+        return (int) this.getPos().y;
     }
 }

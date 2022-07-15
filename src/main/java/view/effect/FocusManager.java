@@ -1,12 +1,9 @@
 package view.effect;
 
-import states.GameStateManager;
-import states.PlayState;
+import interfaces.IFocusable;
+import view.states.PlayState;
 import view.main.GamePanel;
-import view.math.Vector2f;
 import view.object.OBJ_FoodTray;
-
-import java.awt.*;
 
 public class FocusManager {
     private final PlayState ps;

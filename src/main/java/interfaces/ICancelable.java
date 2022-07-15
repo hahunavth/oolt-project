@@ -1,4 +1,4 @@
-package view.component;
+package interfaces;
 
 public interface ICancelable {
     void onCancel();

@@ -2,9 +2,8 @@ package view.entity;
 
 import model.Animals.Animal;
 import org.jetbrains.annotations.NotNull;
-import states.PlayState;
+import view.states.PlayState;
 import view.graphics.SpriteSheet;
-import view.ai.Node;
 import view.main.GamePanel;
 import view.math.AABB;
 import view.utils.ImageSplitter;
@@ -170,5 +169,15 @@ public class FoxEntity extends AnimalEntity {
         }
 
         pathFinder.draw(g2);
+    }
+
+    @Override
+    public int getWorldX() {
+        return 0;
+    }
+
+    @Override
+    public int getWorldY() {
+        return 0;
     }
 }

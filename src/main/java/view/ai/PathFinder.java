@@ -1,7 +1,8 @@
 package view.ai;
 
+import interfaces.controller.ILocatable;
 import org.jetbrains.annotations.NotNull;
-import states.PlayState;
+import view.states.PlayState;
 import view.entity.Entity;
 import view.entity.GameObject;
 import view.main.GamePanel;
@@ -179,6 +180,24 @@ public class PathFinder {
                 (int) entity.getBounds().getCenterY(),
                 (int) gameObject.getBounds().getCenterX(),
                 (int) gameObject.getBounds().getCenterY()
+        );
+    }
+
+    public void setNodes (ILocatable obj1, ILocatable obj2) {
+        this.setNodes(
+                (int) obj1.getBounds().getCenterX(),
+                (int) obj1.getBounds().getCenterY(),
+                (int) obj2.getBounds().getCenterX(),
+                (int) obj2.getBounds().getCenterY()
+        );
+    }
+
+    public void setNodes (ILocatable obj1, int x, int y) {
+        this.setNodes(
+                (int) obj1.getBounds().getCenterX(),
+                (int) obj1.getBounds().getCenterY(),
+                x,
+                y
         );
     }
 

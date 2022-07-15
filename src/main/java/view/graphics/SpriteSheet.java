@@ -1,11 +1,14 @@
 package view.graphics;
 
-import states.GameStateManager;
+import interfaces.controller.Behavior;
+import org.jetbrains.annotations.NotNull;
+import view.states.GameStateManager;
 import view.utils.ImageSplitter;
 
 import java.awt.image.BufferedImage;
 import java.awt.image.ColorModel;
 import java.awt.image.WritableRaster;
+import java.util.*;
 
 /**
  * 1 sheet các sprite
@@ -22,17 +25,23 @@ import java.awt.image.WritableRaster;
  * Do chỉ hiển thị 1 phần của bức ảnh (load 1 lần lên bộ nhớ) sẽ tốt hơn nhiều với việc lấy nhiều bức ảnh và hiển thị chúng.
  * </p>
  */
-public class SpriteSheet {
+public class SpriteSheet<T> {
 
-    private Sprite spritesArray[][];
-    private Sprite spritesGrayArray[][];
+    private List<List<Sprite>> spritesArray;
+    private Map<T, List<Sprite>> spritesArrayIndexes;
+    private List<List<Sprite>> spritesGrayArray;
+    private Map<T, List<Sprite>> spritesGrayArrayIndexes;
+
+//    private Sprite spritesGrayArray[][];
     private int spritesIndexCounter[];
     private int arrLen;
     private String file;
 
     public SpriteSheet (int sttNum, int len) {
-        spritesArray = new Sprite[sttNum][len];
-        spritesGrayArray = new Sprite[sttNum][len];
+        spritesArray = new ArrayList<>(100);
+        spritesGrayArray = new ArrayList<>(100);
+        spritesArrayIndexes = new HashMap<>(100);
+        spritesGrayArrayIndexes = new HashMap<>(100);
 
         spritesIndexCounter = new int[sttNum];
         arrLen = len;
@@ -42,12 +51,26 @@ public class SpriteSheet {
     public SpriteSheet (String fileName, int w, int h) {
         ImageSplitter ci = new ImageSplitter(GameStateManager.gp, fileName, w, h, 0);
 
-        spritesArray = new Sprite[ci.getRows()][ci.getColumns()];
+        spritesArray = new ArrayList<>();
+        spritesGrayArray = new ArrayList<>();
+        spritesArrayIndexes = new HashMap<>();
+        spritesGrayArrayIndexes = new HashMap<>();
 
         for (int i = 0; i < ci.getRows(); i++) {
             for (int j = 0; j < ci.getColumns(); j++) {
-                spritesArray[i][j] = new Sprite(ci.getSubImage(i, j));
+                addSprite(null, i, new Sprite(ci.getSubImage(i, j)));
             }
+        }
+    }
+
+    private void addSprite (T behavior, Integer key, Sprite sprite) {
+        if (!spritesArray.contains(key)) {
+            List<Sprite> spriteList = new ArrayList<>(100);
+            spritesArray.add(spriteList);
+            spritesArrayIndexes.put(behavior, spriteList);
+            spritesArray.get(key).add(sprite);
+        } else {
+            spritesArray.get(key).add(sprite);
         }
     }
 
@@ -61,25 +84,38 @@ public class SpriteSheet {
     public SpriteSheet addSprite(int sttNum, BufferedImage image) {
         try {
             int currentIdx = spritesIndexCounter[sttNum];
-            spritesArray[sttNum][currentIdx] = new Sprite(image);
+            addSprite(null, sttNum, new Sprite(image));
             BufferedImage image1 = deepCopy(image);
-            spritesGrayArray[sttNum][currentIdx] = new Sprite(image1, true); // gray
+//            spritesGrayArray[sttNum][currentIdx] = new Sprite(image1, true); // gray
             spritesIndexCounter[sttNum] += 1;
-        } catch (Exception e) {
+        }
+        catch (NullPointerException e) {
+            System.out.println(e);
+        }
+        catch (Exception e) {
             e.printStackTrace();
         }
         return this;
     }
 
-    public Sprite[] getSpriteArray (int sttIdx) {
-        return spritesArray[sttIdx];
+    public List<Sprite> getSpriteArray (int sttIdx) {
+        return spritesArray.get(sttIdx);
     }
-    public Sprite[] getGraySpriteArray (int sttIdx) {
-        return spritesGrayArray[sttIdx];
+    public List<Sprite> getGraySpriteArray (int sttIdx) {
+        return spritesGrayArray.get(sttIdx);
     }
     public Sprite getSprite (int sttIdx, int idx) {
-        return spritesArray[sttIdx][idx];
+        return spritesArray.get(sttIdx).get(idx);
     }
 
-
+    @Override
+    public String toString() {
+        return "SpriteSheet{" +
+//                "spritesArray=" + Arrays.toString(spritesArray) +
+//                ", spritesGrayArray=" + Arrays.toString(spritesGrayArray) +
+//                ", spritesIndexCounter=" + Arrays.toString(spritesIndexCounter) +
+                ", arrLen=" + arrLen +
+                ", file='" + file + '\'' +
+                '}';
+    }
 }

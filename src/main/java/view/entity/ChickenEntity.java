@@ -2,9 +2,8 @@ package view.entity;
 
 import model.Activities.*;
 import model.Animals.Animal;
-import org.jetbrains.annotations.NotNull;
-import states.PlayState;
-import view.ai.Node;
+import view.graphics.Sprite;
+import view.states.PlayState;
 import view.ai.PathFinder;
 import view.graphics.SpriteSheet;
 import view.main.GamePanel;
@@ -14,10 +13,7 @@ import view.utils.ImageSplitter;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.Random;
-
-import static basic.Params.*;
-import static basic.Params.HOME;
-
+import java.util.List;
 public class ChickenEntity extends AnimalEntity {
     private int counter;
     private int lifeCounter;
@@ -89,10 +85,6 @@ public class ChickenEntity extends AnimalEntity {
             for(int j = 0; j < 4; j++) {
                 imgs[i*4+j] = ci.getSubImage(i, j);
                 flipImgs[i*4+j] = ci.getFlipSubImage(i, j);
-//                this.sprite.addSprite(UP, ci.getSubImage(i, j)) ;
-//                this.sprite.addSprite(LEFT, ci.getSubImage(i, j)) ;
-//                this.sprite.addSprite(DOWN, ci.getFlipSubImage(i, j)) ;
-//                this.sprite.addSprite(RIGHT, ci.getFlipSubImage(i, j)) ;
             }
         }
 
@@ -224,11 +216,13 @@ public class ChickenEntity extends AnimalEntity {
                 // chet -> hien anh xam
         if (this.animal != null)
             if (this.animal.isDead()) {
+                List<Sprite> spriteList = sprite.getGraySpriteArray(
+                        FLIP + posture
+                );
+
                 setAnimation(
                         FLIP,
-                        sprite.getGraySpriteArray(
-                                FLIP + posture
-                        ),
+                        spriteList,
                         12
                 );
             }
@@ -382,5 +376,15 @@ public class ChickenEntity extends AnimalEntity {
         super.draw(g2);
 
         pathFinder.draw(g2);
+    }
+
+    @Override
+    public int getWorldX() {
+        return 0;
+    }
+
+    @Override
+    public int getWorldY() {
+        return 0;
     }
 }

@@ -1,6 +1,7 @@
 package view.component;
 
-import states.GameStateManager;
+import interfaces.ICancelable;
+import view.states.GameStateManager;
 
 import java.awt.*;
 

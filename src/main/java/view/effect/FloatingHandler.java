@@ -1,6 +1,8 @@
 package view.effect;
 
-public class FloatingHandler implements  IFloating {
+import interfaces.IFloating;
+
+public class FloatingHandler implements IFloating {
     private boolean fly;
     private int counter;
     private int offsetX = 0, offsetY = 0;

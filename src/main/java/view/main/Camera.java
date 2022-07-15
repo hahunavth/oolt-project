@@ -1,12 +1,10 @@
 package view.main;
 
-import states.GameStateManager;
+import view.states.GameStateManager;
 import view.entity.Entity;
 import view.entity.GameObject;
 import view.math.AABB;
 import view.math.Vector2f;
-
-import java.awt.*;
 
 /**
  * <h1>Camera: 1 phần bản đồ được hiển thị lên màn hình.</h1>

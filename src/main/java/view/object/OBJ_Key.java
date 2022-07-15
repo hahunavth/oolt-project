@@ -1,8 +1,6 @@
 package view.object;
 
-import states.PlayState;
-import view.effect.FocusableHandler;
-import view.effect.IFocusable;
+import view.states.PlayState;
 import view.main.GamePanel;
 
 import javax.imageio.ImageIO;

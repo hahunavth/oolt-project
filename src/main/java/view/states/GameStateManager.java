@@ -1,7 +1,5 @@
-package states;
+package view.states;
 
-import model.ModelState;
-import model.TimeManager;
 import view.main.Camera;
 import view.main.GamePanel;
 import view.main.KeyHandler;
@@ -163,7 +161,7 @@ public class GameStateManager {
         camera.input(mouse, key);
         for (int i = 0; i < states.length; i++) {
             if (states[i] != null) {
-//                System.out.println(states[i]);
+//                System.out.println(view.states[i]);
                 states[i].input(mouse, key, this);
             }
         }

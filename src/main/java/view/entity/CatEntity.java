@@ -1,9 +1,7 @@
 package view.entity;
 import model.Activities.*;
 import model.Animals.Animal;
-import model.Food;
-import model.ModelState;
-import states.PlayState;
+import view.states.PlayState;
 import view.ai.Node;
 import view.ai.PathFinder;
 import view.graphics.SpriteSheet;
@@ -337,5 +335,15 @@ public class CatEntity extends AnimalEntity{
         super.draw(g2);
 
         pathFinder.draw(g2);
+    }
+
+    @Override
+    public int getWorldX() {
+        return 0;
+    }
+
+    @Override
+    public int getWorldY() {
+        return 0;
     }
 }

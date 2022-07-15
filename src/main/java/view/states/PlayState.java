@@ -1,18 +1,15 @@
-package states;
+package view.states;
 
-import model.Animals.Animal;
-import model.Animals.*;
+import controller.ChickenController;
 import view.entity.*;
 import view.main.*;
 import view.object.OBJ_FoodTray;
-import view.object.OBJ_Key;
+import view.renderer.ChickenRenderer;
 import view.title.TileManager;
 
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
-
-import static basic.Params.*;
 
 /**
  * PlayState
@@ -31,6 +28,8 @@ public class PlayState extends GameState {
     public List<OBJ_FoodTray> foodTrays = new ArrayList<>();
 
     public Player player;
+
+    ChickenRenderer chickenRenderer = new ChickenRenderer(GameStateManager.gp, this, new ChickenController(GameStateManager.gp, this, 20 * GameStateManager.gp.titleSize, 15 * GameStateManager.gp.titleSize, GameStateManager.gp.titleSize, GameStateManager.gp.titleSize, null));
 
     public PlayState (Camera camera) {
         // init
@@ -87,6 +86,8 @@ public class PlayState extends GameState {
                 }
             }
 
+            chickenRenderer.update();
+
         }
     }
 
@@ -124,6 +125,7 @@ public class PlayState extends GameState {
         player.draw(g2);
         ui.draw(g2);
 
+        chickenRenderer.draw(g2);
     }
 
     /**

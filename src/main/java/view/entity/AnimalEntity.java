@@ -1,21 +1,15 @@
 package view.entity;
 
-import model.Activities.EatActivity;
 import model.Activities.IPrepareActivity;
 import model.Animals.Animal;
-import model.Food;
 import org.jetbrains.annotations.NotNull;
-import states.PlayState;
-import view.ai.PathFinder;
+import view.states.PlayState;
 import view.effect.FocusableHandler;
-import view.effect.IFocusable;
+import interfaces.IFocusable;
 import view.main.GamePanel;
 import view.object.OBJ_FoodTray;
-import view.title.TileCollision;
-import view.utils.Direction;
 
 import java.awt.*;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 public abstract class AnimalEntity extends Entity implements IFocusable {
 

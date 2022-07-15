@@ -2,7 +2,7 @@ package basic;
 
 import java.util.Random;
 
-import static states.GameStateManager.gp;
+import static view.states.GameStateManager.gp;
 
 public class Params {
     public static Random rand = new Random();

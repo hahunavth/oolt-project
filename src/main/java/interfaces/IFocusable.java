@@ -1,4 +1,4 @@
-package view.effect;
+package interfaces;
 
 public interface IFocusable {
 

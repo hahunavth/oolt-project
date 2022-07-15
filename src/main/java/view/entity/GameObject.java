@@ -1,6 +1,6 @@
 package view.entity;
 
-import states.PlayState;
+import view.states.PlayState;
 import view.main.GamePanel;
 import view.math.AABB;
 import view.math.Vector2f;

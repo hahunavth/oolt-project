@@ -1,7 +1,8 @@
 package view.effect;
 
 import org.jetbrains.annotations.NotNull;
-import states.PlayState;
+import interfaces.IFocusable;
+import view.states.PlayState;
 import view.entity.AnimalEntity;
 import view.entity.GameObject;
 import view.math.AABB;

@@ -2,7 +2,7 @@ package view.main;
 
 import adapter.Model2GSMAdapter;
 import model.ModelState;
-import states.GameStateManager;
+import view.states.GameStateManager;
 
 import javax.swing.*;
 import java.awt.*;

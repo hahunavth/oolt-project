@@ -1,14 +1,12 @@
 package view.object;
 
-import states.GameStateManager;
-import states.PlayState;
+import view.states.GameStateManager;
+import view.states.PlayState;
 import view.effect.FloatingHandler;
 import view.effect.FocusableHandler;
-import view.effect.IFocusable;
+import interfaces.IFocusable;
 import view.entity.GameObject;
 import view.main.GamePanel;
-import view.math.AABB;
-import view.math.Vector2f;
 import view.utils.Tool;
 
 import java.awt.*;

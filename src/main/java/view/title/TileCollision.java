@@ -1,5 +1,6 @@
 package view.title;
 
+import interfaces.controller.ILocatable;
 import view.entity.Entity;
 import view.title.blocks.Block;
 
@@ -8,12 +9,16 @@ import view.title.blocks.Block;
  *
  */
 public class TileCollision {
-    private final Entity e;
+    private final ILocatable e;
 
     private int tileId;
 
     public TileCollision(Entity e) {
         this.e = e;
+    }
+
+    public TileCollision(ILocatable iLocatable) {
+        this.e = iLocatable;
     }
 
     public boolean normalTile(float ax, float ay) {
