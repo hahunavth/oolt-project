@@ -44,4 +44,9 @@
       ./gradlew jar 
       java -jar ./build/libs/oolt-project-1.0-SNAPSHOT.jar
       ```
-    
+## Can be improved
+- [ ] Use ECS pattern
+- [ ] Singleton for Stylesheet
+- [ ] Object pool
+- [ ] Split state and behavior of animals
+- [ ] Random next state of animal
